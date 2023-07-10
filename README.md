@@ -46,6 +46,7 @@ docker run --name YOUR_CONTAINER_NAME -d -p 8000:8000 YOUR_IMAGE_NAME:TAG
 ## Customization
 
 1. Create a .env file on the model of .example.env with 
+
   - your own OpenAI API Key (free account but cost calculated on the use)
   - the sitemap url to be explored : all the links can be extracted from a generic sitemap or they are also seamlessly filtered for patterns, e.g. using https://knowledge.exlibrisgroup.com/Primo as argument implies taking all URLs only corresponding to the Primo category.
   - and potentially your own HuggingFace API token (free account) if you plan to use a free model available on HuggingFace hub
@@ -55,14 +56,14 @@ docker run --name YOUR_CONTAINER_NAME -d -p 8000:8000 YOUR_IMAGE_NAME:TAG
 storage = "./storage"
 ```
 
-3. The chatbot uses the default llamindex environment from OpenAI with the text-embedding-ada-002 model for embeddings and the gpt-3.5-turbo model as chat model. This one can be overwritten in the app.py file
+3. The chatbot uses the default llamindex environment from OpenAI with the text-embedding-ada-002 model for embeddings and the gpt-3.5-turbo model as chat model. They can be overwritten in the app.py file
 
 ```
 llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo", streaming=True) # can be changed to another OpenAI model like the new  - and more expensive - "gpt-4" or "text-davinci-003"
 ```
 
 ```
-# Embeddinsg are impicit in the code, add these lines to overwrite
+# Embeddings are implicit in the code, add these lines to overwrite
 embeddings = OpenAIEmbeddings(model="<your_openai_embeddingd_model>", chunk_size=1)
 # and modifiy
 service_context = ServiceContext.from_defaults(
