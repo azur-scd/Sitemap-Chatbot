@@ -51,7 +51,7 @@ docker run --name YOUR_CONTAINER_NAME -d -p 8000:8000 YOUR_IMAGE_NAME:TAG
   - the sitemap url to be explored : all the links can be extracted from a generic sitemap or they are also seamlessly filtered for patterns, e.g. using https://knowledge.exlibrisgroup.com/Primo as argument implies taking all URLs only corresponding to the Primo category.
   - and potentially your own HuggingFace API token (free account) if you plan to use a free model available on HuggingFace hub
 
-2. The app uses the llamaindex local data storage mechanism : the documents, index and vector stores are persist in the ./storage folder. The name and location can be changed, don't forget to change the parameter in app.py file
+2. The app uses the llamaindex local data storage mechanism : the documents, index and vector stores are persisted in the ./storage folder. The name and location can be changed, don't forget to change the parameter in app.py file
 ```
 storage = "./storage"
 ```
